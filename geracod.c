@@ -4,7 +4,7 @@ Esse arquivo não deve conter a função main. */
 
 
 /*FUNCAO GERACOD:
-leia um arquivo de entrada contendo o código fonte uma função na linguagem 
+le um arquivo de entrada contendo o código fonte uma função na linguagem 
 SB, gere o código de máquina correspondente, e retorne o endereço 
 da região de memória que contém o código gerado (um bloco de memória 
 alocado dinamicamente). O arquivo de entrada terá no máximo 
@@ -89,7 +89,27 @@ alocada para armazenamento do código
 de máquina.
 */
 
-/* Nome_do_Aluno1 Matricula Turma */
-/* Mariana Medeiros Ruddy Santos 1611397  Turma */
+/* Heloisa Pessoa Matricula 3WA */
+/* Mariana Medeiros Ruddy Santos 1611397 3WA */
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #include "geracod.h"
+
+// void escreveNoArquivo (FILE * fp){
+
+// }
+int main (void){
+    FILE * fp;
+    fp = fopen ("resultado.txt", "w");
+    if(fp == NULL){
+        printf("ERRO AO ABRIR O ARQUIVO\n");
+    }
+
+    fprintf(fp,"teste");
+
+    fclose(fp);
+
+    return 0;
+}
