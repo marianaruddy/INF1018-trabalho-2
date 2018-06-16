@@ -1,0 +1,13 @@
+/*
+O relatório deverá explicar o que está funcionando e o que não está funcionando. 
+Não é necessário documentar sua função no relatório. Seu código deverá ser claro 
+o suficiente para que isso não seja necessário.
+O relatório deverá conter também alguns exemplos de funções da linguagem SB que 
+você usou para testar o seu trabalho. Mostre tanto as funções SB traduzidas e 
+executadas com sucesso como as que resultaram em erros (se for o caso). 
+*/
+
+/*************************** INICIO ***************************/
+
+/* Heloisa Pessoa Matricula 3WA */
+/* Mariana Medeiros Ruddy Santos 1611397 3WA */

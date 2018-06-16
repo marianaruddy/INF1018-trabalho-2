@@ -89,6 +89,8 @@ alocada para armazenamento do código
 de máquina.
 */
 
+/*************************** INICIO ***************************/
+
 /* Heloisa Pessoa Matricula 3WA */
 /* Mariana Medeiros Ruddy Santos 1611397 3WA */
 
