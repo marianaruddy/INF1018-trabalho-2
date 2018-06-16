@@ -95,32 +95,35 @@ de máquina.
 /* Mariana Medeiros Ruddy Santos 1611397 3WA */
 
 #include <stdlib.h>
-#include <stdio.h>
 #include <string.h>
 // #include <conio.h> /*funcao getch()*/
+
+
+    // system("gcc -c code.s");
+    // system("objdump -d code.o");
+ 
+
+#include <stdio.h>
 #include "geracod.h"
+int main(int argc, char *argv[]) {
+  FILE *myfp;
+    funcp funcaoSB;
+    // int res;
 
-// void escreveNoArquivo (FILE * fp){
-
-// }
-int main (void){
-    FILE * fentrada = fopen ("", "r");
-    FILE * fsaida = fopen ("resultado.txt", "w");
-
-    if(fentrada == NULL){
-        printf("ERRO AO ABRIR O ARQUIVO DE ENTRADA\n");
+    /* Abre o arquivo fonte */
+    if ((myfp = fopen("programa", "r")) == NULL) {
+        perror("Falha na abertura do arquivo fonte");
+        exit(1);
     }
-    if(fsaida == NULL){
-        printf("ERRO AO ABRIR O ARQUIVO DE SAIDA\n");
-    }
+    /* compila a função SB */
+    funcaoSB = geracod(myfp);
+  fclose(myfp);
 
-    system("gcc -c code.s");
-    system("objdump -d code.o");
-
-    fprintf(fsaida,"teste");
-
-    fclose(fsaida);
-    fclose(fentrada);
+  /* chama a função */
+//   res = (*funcaoSB) (/*....*/);  /* passando parâmetro apropriados */
+//   ...
+  liberacod(funcaoSB);
+//   ...
 
     return 0;
 }
