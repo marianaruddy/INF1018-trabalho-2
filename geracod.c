@@ -106,9 +106,10 @@ de máquina.
 #include <stdio.h>
 #include "geracod.h"
 
-// typedef int (*funcp) ();
 funcp geracod(FILE *f){
-    return ;
+    funcp a;
+    // logica aqui...
+    return a;
 }
 void liberacod(void *pf){
     free(pf);
