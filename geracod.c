@@ -91,27 +91,35 @@ de máquina.
 
 /*************************** INICIO ***************************/
 
-/* Heloisa Pessoa Matricula 3WA */
+/* Heloisa Pessoa Matricula 3WA */ /*COMPLETA SEUS DADOS AQUI*/
 /* Mariana Medeiros Ruddy Santos 1611397 3WA */
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+// #include <conio.h> /*funcao getch()*/
 #include "geracod.h"
 
 // void escreveNoArquivo (FILE * fp){
 
 // }
 int main (void){
-    FILE * fp;
-    fp = fopen ("resultado.txt", "w");
-    if(fp == NULL){
-        printf("ERRO AO ABRIR O ARQUIVO\n");
+    FILE * fentrada = fopen ("", "r");
+    FILE * fsaida = fopen ("resultado.txt", "w");
+
+    if(fentrada == NULL){
+        printf("ERRO AO ABRIR O ARQUIVO DE ENTRADA\n");
+    }
+    if(fsaida == NULL){
+        printf("ERRO AO ABRIR O ARQUIVO DE SAIDA\n");
     }
 
-    fprintf(fp,"teste");
+    system("gcc -c code.s");
+    system("objdump -d code.o");
 
-    fclose(fp);
+    fprintf(fsaida,"teste");
+
+    fclose(fsaida);
 
     return 0;
 }
