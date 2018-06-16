@@ -105,6 +105,15 @@ de máquina.
 
 #include <stdio.h>
 #include "geracod.h"
+
+// typedef int (*funcp) ();
+funcp geracod(FILE *f){
+    return ;
+}
+void liberacod(void *pf){
+    free(pf);
+}
+
 int main(int argc, char *argv[]) {
   FILE *myfp;
     funcp funcaoSB;
