@@ -120,6 +120,7 @@ int main (void){
     fprintf(fsaida,"teste");
 
     fclose(fsaida);
+    fclose(fentrada);
 
     return 0;
 }
