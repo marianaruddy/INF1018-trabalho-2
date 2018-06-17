@@ -94,7 +94,6 @@ de máquina.
 /* Heloisa Pessoa Matricula 3WA */ /*COMPLETA SEUS DADOS AQUI*/
 /* Mariana Medeiros Ruddy Santos 1611397 3WA */
 
-#include <stdlib.h>
 #include <string.h>
 // #include <conio.h> /*funcao getch()*/
 
@@ -104,26 +103,53 @@ de máquina.
  
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "geracod.h"
-int main(int argc, char *argv[]) {
-  FILE *myfp;
-    funcp funcaoSB;
-    // int res;
 
-    /* Abre o arquivo fonte */
-    if ((myfp = fopen("programa", "r")) == NULL) {
-        perror("Falha na abertura do arquivo fonte");
-        exit(1);
-    }
-    /* compila a função SB */
-    funcaoSB = geracod(myfp);
-  fclose(myfp);
+// funcp geracod(FILE *f){
+// }
 
-  /* chama a função */
-//   res = (*funcaoSB) (/*....*/);  /* passando parâmetro apropriados */
-//   ...
-  liberacod(funcaoSB);
-//   ...
+int geracodtest (){
+    int *array  = malloc(3*sizeof(int));
+    array[0] = 0x89;
+    array[1] = 0xf8;
+    array[2] = 0xc3;
 
+    /*
+      0:	89 f8                	mov    %edi,%eax
+      2:	c3                   	ret    
+    */
+         
+    return &array;
+}
+
+void liberacod(void *pf){
+    free(pf); /*??*/
+}
+int main (void){
+    printf("end = 0x%d\n", geracodtest());
     return 0;
 }
+
+// int main(int argc, char *argv[]) {
+//   FILE *myfp;
+//     funcp funcaoSB;
+//     // int res;
+
+//     /* Abre o arquivo fonte */
+//     if ((myfp = fopen("programa", "r")) == NULL) {
+//         perror("Falha na abertura do arquivo fonte");
+//         exit(1);
+//     }
+//     /* compila a função SB */
+//     funcaoSB = geracod(myfp);
+//   fclose(myfp);
+
+//   /* chama a função */
+// //   res = (*funcaoSB) (/*....*/);  /* passando parâmetro apropriados */
+// //   ...
+//   liberacod(funcaoSB);
+// //   ...
+
+//     return 0;
+// }
