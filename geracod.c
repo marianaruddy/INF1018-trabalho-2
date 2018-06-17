@@ -107,33 +107,39 @@ de máquina.
 #include "geracod.h"
 
 funcp geracod(FILE *f){
-    funcp a;
-    // logica aqui...
-    return a;
+    // funcp a;
+    funcp array [3];
+    array[0] = 0x89;
+    array[1] = 0xf8;
+    array[2] = 0xc3;
+    return array;
 }
 void liberacod(void *pf){
-    free(pf);
+    free(pf); /*??*/
 }
-
-int main(int argc, char *argv[]) {
-  FILE *myfp;
-    funcp funcaoSB;
-    // int res;
-
-    /* Abre o arquivo fonte */
-    if ((myfp = fopen("programa", "r")) == NULL) {
-        perror("Falha na abertura do arquivo fonte");
-        exit(1);
-    }
-    /* compila a função SB */
-    funcaoSB = geracod(myfp);
-  fclose(myfp);
-
-  /* chama a função */
-//   res = (*funcaoSB) (/*....*/);  /* passando parâmetro apropriados */
-//   ...
-  liberacod(funcaoSB);
-//   ...
-
+int main (void){
     return 0;
 }
+
+// int main(int argc, char *argv[]) {
+//   FILE *myfp;
+//     funcp funcaoSB;
+//     // int res;
+
+//     /* Abre o arquivo fonte */
+//     if ((myfp = fopen("programa", "r")) == NULL) {
+//         perror("Falha na abertura do arquivo fonte");
+//         exit(1);
+//     }
+//     /* compila a função SB */
+//     funcaoSB = geracod(myfp);
+//   fclose(myfp);
+
+//   /* chama a função */
+// //   res = (*funcaoSB) (/*....*/);  /* passando parâmetro apropriados */
+// //   ...
+//   liberacod(funcaoSB);
+// //   ...
+
+//     return 0;
+// }
