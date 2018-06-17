@@ -94,6 +94,7 @@ de máquina.
 /* Heloisa Pessoa Matricula 3WA */ /*COMPLETA SEUS DADOS AQUI*/
 /* Mariana Medeiros Ruddy Santos 1611397 3WA */
 
+
 #include <string.h>
 // #include <conio.h> /*funcao getch()*/
 
@@ -108,6 +109,7 @@ de máquina.
 
 // funcp geracod(FILE *f){
 // }
+
 
 int geracodtest (){
     int *array  = malloc(3*sizeof(int));
