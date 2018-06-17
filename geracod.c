@@ -111,7 +111,7 @@ de máquina.
 // }
 
 
-int geracodtest (){
+int* geracodtest (){
     int *array  = malloc(3*sizeof(int));
     array[0] = 0x89;
     array[1] = 0xf8;
@@ -122,14 +122,14 @@ int geracodtest (){
       2:	c3                   	ret    
     */
          
-    return &array;
+    return array;
 }
 
 void liberacod(void *pf){
     free(pf); /*??*/
 }
 int main (void){
-    printf("end = 0x%d\n", geracodtest());
+    printf("end = 0x%d\n", geracodtest() );
     return 0;
 }
 
