@@ -107,17 +107,15 @@ de máquina.
 #include <stdlib.h>
 #include "geracod.h"
 
-#define codMaqRet
+#define codMaqRet 0xc3
 #define codMaqGo
 #define codMaqIf
-#define codMaq
-#define codMaq
 
  funcp geracod(FILE *f){
 	unsigned char* array  = malloc((10*20)*sizeof(char)); /*10: tamanho arbitrario	20: num max de linhas*/
-	int numLinha = 0, i = 0;
-	while(leSB (FILE *f) != NULL){
-		array[i] = leSB (FILE *f, numLinha);
+	int numLinha = 1, i = 0;
+	while(leSB (f, numLinha) != NULL){
+		array[i] = leSB (f, numLinha);
 		i++;
 	}
 	funcp endereco = (funcp)array;
@@ -127,7 +125,7 @@ de máquina.
 
 
 /*********** lendo o arquivo em SB ***********/
-unsigned char* leSB (FILE *f, numLinha){
+unsigned char* leSB (FILE *f, int numLinha){
 	char comando;
 	unsigned char* codMaq;
 	if (fscanf(f, "%c",&comando) = "\n"){
@@ -136,26 +134,26 @@ unsigned char* leSB (FILE *f, numLinha){
 	else{
 
 		switch (fscanf(f, "%c",&comando)){
-			case ("ret"):
+			case 'ret':
 				codMaq = codMaqRet;
 				/*fscanf(f, " %c\n",&comando);*/	/*le o que retorna*/
-			case ("if"):
+			case 'if':
 				codMaq = codMaqIf;
 				/*fscanf(f, " %c",&comando);*/	/*le oq vai ser comparado com 0*/
 				/*fscanf(f, " %c",&comando);*/	/*le linha do case se for menor que 0*/
 				/*fscanf(f, " %c\n",&comando);*/	/*le linha do case se for igual a 0*/
-			case ("go"):
+			case 'go':
 				codMaq = codMaqGo;
 				/*fscanf(f, " %c\n",&comando);*/	/*le linha para onde vai pular*/
-			case ("v"):
+			case 'v':
 	
 				
 				fscanf(f, "\n",&comando);
-			case ("p"):
+			case 'p':
 	
 	
 				fscanf(f, "\n",&comando);
-			default
+			default:
 				printf("ERRO: COMANDO INVALIDO");
 		}
 	}
@@ -164,61 +162,12 @@ unsigned char* leSB (FILE *f, numLinha){
 	
 /*********** lendo o arquivo em SB ***********/
 
-funcp geracodtest (){
-    unsigned char* array  = malloc(3*sizeof(char));
-    array[0] = 0x89; 
-    array[1] = 0xf8;
-    array[2] = 0xc3;
-	funcp p = (funcp)array;
-    /*
-      0:	89 f8                	mov    %edi,%eax
-      2:	c3                   	ret    
-    */
-         
-    return p;
-}
-
-void liberacod(void *pf){
-    free(pf); /*??*/
-}
-int main (void){
-	funcp p = geracodtest();
-    printf("end = %d\n", p(900) );
-    return 0;
-}
-
-// int main(int argc, char *argv[]) {
-//   FILE *myfp;
-//     funcp funcaoSB;
-//     // int res;
-
-//     /* Abre o arquivo fonte */
-//     if ((myfp = fopen("programa", "r")) == NULL) {
-//         perror("Falha na abertura do arquivo fonte");
-//         exit(1);
-//     }
-//     /* compila a função SB */
-//     funcaoSB = geracod(myfp);
-//   fclose(myfp);
-
-//   /* chama a função */
-// //   res = (*funcaoSB) (/*....*/);  /* passando parâmetro apropriados */
-// //   ...
-//   liberacod(funcaoSB);
-// //   ...
-
-//     return 0;
-// }
 
 
 
 
 /*interpretacao do arquivo em SB do prof*/
 /*
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-
 static void error (const char *msg, int line) {
   fprintf(stderr, "erro %s na linha %d\n", msg, line);
   exit(EXIT_FAILURE);
@@ -278,3 +227,59 @@ int main (void) {
 }
 
 */
+
+
+
+
+
+
+
+
+funcp geracodtest (){
+    unsigned char* array  = malloc(3*sizeof(char));
+    array[0] = 0x89; 
+    array[1] = 0xf8;
+    array[2] = 0xc3;
+	funcp p = (funcp)array;
+    /*
+      0:	89 f8                	mov    %edi,%eax
+      2:	c3                   	ret    
+    */
+         
+    return p;
+}
+
+void liberacod(void *pf){
+    free(pf); /*??*/
+}
+int main (void){
+	funcp p = geracodtest();
+    printf("end = %d\n", p(900) );
+    return 0;
+}
+
+// int main(int argc, char *argv[]) {
+//   FILE *myfp;
+//     funcp funcaoSB;
+//     // int res;
+
+//     /* Abre o arquivo fonte */
+//     if ((myfp = fopen("programa", "r")) == NULL) {
+//         perror("Falha na abertura do arquivo fonte");
+//         exit(1);
+//     }
+//     /* compila a função SB */
+//     funcaoSB = geracod(myfp);
+//   fclose(myfp);
+
+//   /* chama a função */
+// //   res = (*funcaoSB) (/*....*/);  /* passando parâmetro apropriados */
+// //   ...
+//   liberacod(funcaoSB);
+// //   ...
+
+//     return 0;
+// }
+
+
+
