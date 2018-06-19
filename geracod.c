@@ -111,25 +111,26 @@ de máquina.
 // }
 
 
-int* geracodtest (){
-    int *array  = malloc(3*sizeof(int));
-    array[0] = 0x89;
+funcp geracodtest (){
+    unsigned char* array  = malloc(3*sizeof(char));
+    array[0] = 0x89; 
     array[1] = 0xf8;
     array[2] = 0xc3;
-
+	funcp p = (funcp)array;
     /*
       0:	89 f8                	mov    %edi,%eax
       2:	c3                   	ret    
     */
          
-    return array;
+    return p;
 }
 
 void liberacod(void *pf){
     free(pf); /*??*/
 }
 int main (void){
-    printf("end = 0x%d\n", geracodtest() );
+	funcp p = geracodtest();
+    printf("end = %d\n", p(900) );
     return 0;
 }
 
