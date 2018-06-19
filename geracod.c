@@ -107,9 +107,62 @@ de máquina.
 #include <stdlib.h>
 #include "geracod.h"
 
-// funcp geracod(FILE *f){
-// }
+#define codMaqRet
+#define codMaqGo
+#define codMaqIf
+#define codMaq
+#define codMaq
 
+ funcp geracod(FILE *f){
+	unsigned char* array  = malloc((10*20)*sizeof(char)); /*10: tamanho arbitrario	20: num max de linhas*/
+	int numLinha = 0, i = 0;
+	while(leSB (FILE *f) != NULL){
+		array[i] = leSB (FILE *f, numLinha);
+		i++;
+	}
+	funcp endereco = (funcp)array;
+	return endereco;
+ }
+
+
+
+/*********** lendo o arquivo em SB ***********/
+unsigned char* leSB (FILE *f, numLinha){
+	char comando;
+	unsigned char* codMaq;
+	if (fscanf(f, "%c",&comando) = "\n"){
+		numLinha++;
+	}
+	else{
+
+		switch (fscanf(f, "%c",&comando)){
+			case ("ret"):
+				codMaq = codMaqRet;
+				/*fscanf(f, " %c\n",&comando);*/	/*le o que retorna*/
+			case ("if"):
+				codMaq = codMaqIf;
+				/*fscanf(f, " %c",&comando);*/	/*le oq vai ser comparado com 0*/
+				/*fscanf(f, " %c",&comando);*/	/*le linha do case se for menor que 0*/
+				/*fscanf(f, " %c\n",&comando);*/	/*le linha do case se for igual a 0*/
+			case ("go"):
+				codMaq = codMaqGo;
+				/*fscanf(f, " %c\n",&comando);*/	/*le linha para onde vai pular*/
+			case ("v"):
+	
+				
+				fscanf(f, "\n",&comando);
+			case ("p"):
+	
+	
+				fscanf(f, "\n",&comando);
+			default
+				printf("ERRO: COMANDO INVALIDO");
+		}
+	}
+	return codMaq;	
+}
+	
+/*********** lendo o arquivo em SB ***********/
 
 funcp geracodtest (){
     unsigned char* array  = malloc(3*sizeof(char));
@@ -156,3 +209,72 @@ int main (void){
 
 //     return 0;
 // }
+
+
+
+
+/*interpretacao do arquivo em SB do prof*/
+/*
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+static void error (const char *msg, int line) {
+  fprintf(stderr, "erro %s na linha %d\n", msg, line);
+  exit(EXIT_FAILURE);
+}
+
+int main (void) {
+  int line = 1;
+  int  c;
+  FILE *myfp;
+
+  if ((myfp = fopen ("programa", "r")) == NULL) {
+    perror ("nao conseguiu abrir arquivo!");
+    exit(1);
+  }
+
+  while ((c = fgetc(myfp)) != EOF) {
+    switch (c) {
+      case 'r': { /* retorno */
+  /*      char var0;
+        int idx0;
+        if (fscanf(myfp, "et %c%d", &var0, &idx0) != 2)
+          error("comando invalido", line);
+        printf("%d ret %c%d\n", line, var0, idx0);
+        break;
+      }
+      case 'v':
+      case 'p': { /* atribuiÃ§Ã£o e op. aritmetica */
+  /*      char var0 = c, var1, op;
+        int idx0, idx1;
+
+  /*      if (fscanf(myfp, "%d %c= %c%d", &idx0, &op, &var1, &idx1) != 4)
+            error("comando invalido", line);
+          printf("%d %c%d %c= %c%d\n", line, var0, idx0, op, var1, idx1);
+        break;
+      }
+      case 'i': { /* desvio condicional */
+    /*    char var0;
+        int idx0, n1, n2;
+        if (fscanf(myfp, "f %c%d %d %d", &var0, &idx0, &n1, &n2) != 4)
+            error("comando invalido", line);
+          printf("%d if %c%d %d %d\n", line, var0, idx0, n1, n2);
+        break;
+      }
+      case 'g': { /* desvio incondicional */
+    /*    int n1;
+        if (fscanf(myfp, "o %d", &n1) != 1)
+            error("comando invalido", line);
+          printf("%d go %d\n", line, n1);
+        break;
+      }
+      default: error("comando desconhecido", line);
+    }
+    line ++;
+    fscanf(myfp, " ");
+  }
+  return 0;
+}
+
+*/
