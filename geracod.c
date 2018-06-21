@@ -125,14 +125,13 @@ de máquina.
 
 
 /*********** lendo o arquivo em SB ***********/
-unsigned char* leSB (FILE *f, int numLinha){
+void leSB (FILE *myfp){
 	char comando;
 	unsigned char* codMaq;
 	if (fscanf(f, "%c",&comando) = "\n"){
 		numLinha++;
 	}
 	else{
-
 		switch (fscanf(f, "%c",&comando)){
 			case 'ret':
 				codMaq = codMaqRet;
@@ -156,12 +155,61 @@ unsigned char* leSB (FILE *f, int numLinha){
 			default:
 				printf("ERRO: COMANDO INVALIDO");
 		}
-	}
-	return codMaq;	
+	}	
 }
 	
-/*********** lendo o arquivo em SB ***********/
+/*********** lendo o arquivo em SB com a funcao do prof ***********/
 
+void leSB (FILE *myfp){
+	if (fscanf(myfp, "et %c%d", &var0, &idx0) != 2){
+          error("comando invalido", line);
+	}
+	else{
+		codMaq = codMaqRet;	/*PODEMOS FAZER UMA FUNCAO add_no_array(codMaq) E CHAMAR AQUI*/	
+		/*ACHO QUE FALTA COISA AQUI*/
+	}
+      }
+	case 'v':
+
+		/*FALTA FAZER*/
+	case 'p': { /* atribuiÃ§Ã£o e op. aritmetica */
+        char var0 = c, var1, op;
+        int idx0, idx1;
+
+	if (fscanf(myfp, "%d %c= %c%d", &idx0, &op, &var1, &idx1) != 4){
+          error("comando invalido", line);
+	}
+	else{
+		codMaq = codMaqP;	/*PODEMOS FAZER UMA FUNCAO add_no_array(codMaq) E CHAMAR AQUI*/	
+		/*ACHO QUE FALTA COISA AQUI*/
+	}
+      }
+	case 'i': { /* desvio condicional */
+        char var0;
+        int idx0, n1, n2;
+	if (fscanf(myfp, "f %c%d %d %d", &var0, &idx0, &n1, &n2) != 4){
+          error("comando invalido", line);
+	}
+	else{
+		codMaq = codMaqIf;	/*PODEMOS FAZER UMA FUNCAO add_no_array(codMaq) E CHAMAR AQUI*/
+		/*ACHO QUE FALTA COISA AQUI*/
+	}
+      }
+	case 'g': { /* desvio incondicional */
+        int n1;
+	if (fscanf(myfp, "o %d", &n1) != 1){
+          error("comando invalido", line);
+	}
+	else{
+		codMaq = codMaqIf;	/*PODEMOS FAZER UMA FUNCAO add_no_array(codMaq) E CHAMAR AQUI*/
+		/*ACHO QUE FALTA COISA AQUI*/
+	}
+	default: error("comando desconhecido", line);
+    }
+    line ++;
+    fscanf(myfp, " ");
+  }
+}
 
 
 
