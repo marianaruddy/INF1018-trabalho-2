@@ -4,13 +4,13 @@
 #include "geracod.h"
 
 #define codMaqRet 0xc3
-#define codMaqGo
-#define codMaqIf
-#define codMaqVar
-#define codMaqP
-#define codMaqId
-#define codMaqLn
-#define codMaq
+#define codMaqGo 1    //valor de teste
+#define codMaqIf 1    //valor de teste
+#define codMaqVar 1   //valor de teste
+#define codMaqP 1     //valor de teste
+#define codMaqId 1    //valor de teste
+#define codMaqLn 1    //valor de teste
+#define codMaq 1      //valor de teste
 
 
 static void error (const char *msg, int line) {
@@ -114,7 +114,7 @@ void leSB (FILE *myfp, unsigned char* array){
 int main (void) {
     FILE *myfp;
     unsigned char* array  = malloc((10*20)*sizeof(char)); /*10: tamanho arbitrario	20: num max de linhas*/
-
+    
   
   return 0;
 }
