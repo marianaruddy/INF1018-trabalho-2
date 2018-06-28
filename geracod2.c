@@ -4,13 +4,12 @@
 #include "geracod.h"
 
 #define codMaqRet 0xc3
-#define codMaqGo 1    //valor de teste
-#define codMaqIf 1    //valor de teste
-#define codMaqVar 1   //valor de teste
-#define codMaqP 1     //valor de teste
-#define codMaqId 1    //valor de teste
-#define codMaqLn 1    //valor de teste
-#define codMaq 1      //valor de teste
+#define codMaqLeave 0xc9
+#define codMaqAdd 0x4801c0
+#define codMaqSub 0x4829c0
+#define codMaqMult 0x480fafc0
+// #define codMaq
+
 
 
 static void error (const char *msg, int line) {
@@ -39,10 +38,6 @@ void leSB (FILE *myfp, unsigned char* array){
             else{
                 array[posicaoArray] = codMaqRet;
                 posicaoArray++;
-                array[posicaoArray] = codMaqVar;
-                posicaoArray++;
-                array[posicaoArray] = codMaqId; //???
-                posicaoArray++;
             }
             break;      //precisa??
 
@@ -56,14 +51,7 @@ void leSB (FILE *myfp, unsigned char* array){
                 error("comando invalido", line);
             }
             else{
-                array[posicaoArray] = codMaqId;
-                posicaoArray++;
-                array[posicaoArray] = codMaqId;
-                posicaoArray++;
-                array[posicaoArray] = codMaqVar;
-                posicaoArray++;
-                array[posicaoArray] = codMaqId;
-                posicaoArray++;
+                
             }
             break;          //precisa??
         }
@@ -74,16 +62,7 @@ void leSB (FILE *myfp, unsigned char* array){
                 error("comando invalido", line);
             }
             else{
-                array[posicaoArray] = codMaqIf;
-                posicaoArray++;
-                array[posicaoArray] = codMaqVar;
-                posicaoArray++;
-                array[posicaoArray] = codMaqP;
-                posicaoArray++;
-                array[posicaoArray] = codMaqLn;
-                posicaoArray++;
-                array[posicaoArray] = codMaqLn;
-                posicaoArray++;
+                
 
             }
             break;          //precisa??
@@ -94,10 +73,7 @@ void leSB (FILE *myfp, unsigned char* array){
                 error("comando invalido", line);
             }
             else{
-                array[posicaoArray] = codMaqGo;
-                posicaoArray++;
-                array[posicaoArray] = codMaqLn;
-                posicaoArray++;
+                
 
             }
             break; //precisa??
