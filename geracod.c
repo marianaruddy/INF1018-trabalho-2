@@ -124,7 +124,7 @@ de máquina.
 
 
 
-/*********** lendo o arquivo em SB ***********/
+/*********** lendo o arquivo em SB (podemos pensar em ignorar essa parte) ***********/
 void leSB (FILE *myfp){
 	char comando;
 	unsigned char* codMaq;
